@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+		<meta charset="UTF-8" />
+		<script>
+		function someMagic(Function,delay){
+			let timerId;
+			return function(...args){
+				let context = this;
+				clearTimeout(timerId)
+				 timerId = setTimeout(() => {
+					Function.apply(context,args);
+				}, delay);
+			}
+		}
+
+		let counter = 0;
+		function handleChange() {
+		  var inputValue = document.getElementById("myInput").value;
+			console.log('call api '+ counter++ +" "+inputValue)
+		}
+		const debouncedFunc = someMagic(handleChange,2000)
+		</script>
+  </head>
+
+  <body>
+		<input type="text" id="myInput" onkeyup="debouncedFunc()" ></input> 
+  </body>
+</html>
