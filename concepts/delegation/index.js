@@ -13,7 +13,7 @@ document.getElementById('parent').addEventListener(
   (e) => {
     console.log('parent');
     e.stopPropagation(); //this doesnt stop 2nd handler, but stops third handler because that is in bubble phase
-    // e.stopImmediatePropagation(); //this does
+    e.stopImmediatePropagation(); //this does
   },
   true
 );
