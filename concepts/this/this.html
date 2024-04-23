@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      console.log(this);
+      function myFun1() {
+        console.log('this inside function ', this);
+      }
+      myFun1();
+    </script>
+    <script>
+      'use strict';
+      console.log('this strict-mode ', this);
+      function myFun2() {
+        console.log('this inside strict function ', this);
+      }
+      myFun2();
+    </script>
+  </body>
+</html>
