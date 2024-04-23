@@ -1,2 +1,2 @@
-console.log(myVariable);
-console.log(moduleVariable);
+console.log('myVariable', myVariable);
+console.log('moduleVariable', moduleVariable);
