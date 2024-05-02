@@ -17,21 +17,19 @@ const giveNotes = (arr, amount) => {
         return arr[i];
       }
     }
-
-    return -1;
   };
 
   while (pending >= min) {
     const maxAmount = getMaxPossible();
-    if (maxAmount === -1) {
+    if (maxAmount) {
+      pending = pending - maxAmount;
+      const count = notes.get(maxAmount) || 0;
+      notes.set(maxAmount, count + 1);
+    } else {
       console.log(
         'Combination is not possible from the ATM for the entered amount'
       );
       return;
-    } else {
-      pending = pending - maxAmount;
-      const count = notes.get(maxAmount) || 0;
-      notes.set(maxAmount, count + 1);
     }
   }
   if (pending === 0) {
